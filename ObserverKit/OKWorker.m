@@ -7,6 +7,7 @@
 
 typedef void(^OKTwoArgumentsBlock)(id, id);
 typedef void(^OKThreeArgumentsBlock)(id, id, id);
+typedef void(^OKFourArgumentsBlock)(id, id, id, id);
 
 @implementation OKWorker
 
@@ -24,8 +25,8 @@ typedef void(^OKThreeArgumentsBlock)(id, id, id);
                       ofObject:(id)object
                         change:(NSDictionary *)change
                        context:(void *)context {
-    OKTwoArgumentsBlock block = self.block;
-    block(self.owner, change[NSKeyValueChangeNewKey]);
+    OKFourArgumentsBlock block = self.block;
+    block(self.owner, change[NSKeyValueChangeNewKey], change[NSKeyValueChangeOldKey], keyPath);
 }
 
 @end

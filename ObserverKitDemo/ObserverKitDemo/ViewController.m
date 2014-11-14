@@ -31,7 +31,8 @@
     }).control(self.field2, UIControlEventEditingChanged, ^(typeof(self)me, UITextField *field) {
         me.j = [field.text integerValue];
         
-    }).keyPath(@[@"i", @"j"], ^(typeof(self)me, id val) {
+    }).keyPath(@[@"i", @"j"], ^(typeof(self)me, id newValue, id oldValue, NSString *path) {
+        NSLog(@"%@: %@ -> %@", path, oldValue, newValue);
         me.total = me.i + me.j;
         
     }).keyPath(@"total", ^(typeof(self)me, id val){

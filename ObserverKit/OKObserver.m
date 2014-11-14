@@ -42,7 +42,7 @@
              constructor:^(id path, OKWorker *worker) {
                  [self.owner addObserver:worker
                               forKeyPath:path
-                                 options:NSKeyValueObservingOptionNew
+                                 options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld
                                  context:NULL];
              }];
         return self;
