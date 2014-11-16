@@ -1,6 +1,6 @@
-#ObserverKit
-A simple library to use UIControl, NSNotification, Key Value Observing...
+#ObserverKit ![build](https://travis-ci.org/pompopo/ObserverKit.svg?branch=master)
 
+A simple library to use UIControl, NSNotification, Key Value Observing...
 ##Install
 with CocoaPod
 ```
