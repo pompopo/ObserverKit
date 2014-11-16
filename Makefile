@@ -1,5 +1,5 @@
 PROJECT = ObserverKitDemo/ObserverKitDemo.xcodeproj
-TEST_TARGET = ObserverKitDemoTests
+TEST_TARGET = ObserverKitDemo
 
 clean:
 	xcodebuild \
@@ -7,10 +7,8 @@ clean:
 	    clean
 
 test:
-	xcodebuild \
-	    -project $(PROJECT) \
-	    -target $(TEST_TARGET) \
-	    -sdk iphonesimulator \
-	    -configuration Debug \
-	    TEST_AFTER_BUILD=YES \
-	    TEST_HOST=
+	xcodebuild -project $(PROJECT)\
+	    -scheme $(TEST_TARGET) \
+	    -destination 'platform=iOS Simulator,name=iPhone 6,OS=8.1' \
+	    test
+
