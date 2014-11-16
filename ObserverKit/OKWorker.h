@@ -1,6 +1,7 @@
 //
-// Created by pom on 2014/11/12.
-// Copyright (c) 2014 com.gmail.pompopo. All rights reserved.
+// OKWorker.h
+//
+// This is a private class. You don't have to use this.
 //
 
 #import <Foundation/Foundation.h>

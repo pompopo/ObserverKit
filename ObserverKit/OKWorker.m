@@ -1,6 +1,5 @@
 //
-// Created by pom on 2014/11/12.
-// Copyright (c) 2014 com.gmail.pompopo. All rights reserved.
+// OKWorker.m
 //
 
 #import "OKWorker.h"

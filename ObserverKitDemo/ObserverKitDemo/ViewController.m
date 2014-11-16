@@ -37,7 +37,9 @@
         
     }).keyPath(@"total", ^(typeof(self)me, id val){
         me.resultLabel.text = [NSString stringWithFormat:@"%ld", [val integerValue]];
-        
+
+    }).notification(UIApplicationDidReceiveMemoryWarningNotification, ^{
+        NSLog(@"Did receive memory warning");
     });
 }
 

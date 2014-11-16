@@ -1,6 +1,5 @@
 //
 //  OKObserver.m
-//  ObserverKitDemo
 //
 
 #import "OKObserver.h"
