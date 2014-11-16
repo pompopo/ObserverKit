@@ -1,4 +1,4 @@
 language: objective-c
-
-script:
-  - make clean test
+xcode_project: ObserverKitDemo/ObserverKitDemo.xcodeproj
+xcode_scheme: ObserverKitDemo
+xcode_sdk: iphonesimulator8.0
