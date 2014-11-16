@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B24E333C72F7219C440BD37 /* OKWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B24E588524FB30DA69B500A /* OKWorker.m */; };
+		1B24E78809752BF7DFD4690A /* NSObject+OKObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B24E60489737B8DF17D02A0 /* NSObject+OKObserver.m */; };
 		FE72FF781A13722D007F3FA5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FE72FF771A13722D007F3FA5 /* main.m */; };
 		FE72FF7B1A13722D007F3FA5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE72FF7A1A13722D007F3FA5 /* AppDelegate.m */; };
 		FE72FF7E1A13722D007F3FA5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE72FF7D1A13722D007F3FA5 /* ViewController.m */; };
@@ -30,6 +31,8 @@
 
 /* Begin PBXFileReference section */
 		1B24E588524FB30DA69B500A /* OKWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKWorker.m; path = ../ObserverKit/OKWorker.m; sourceTree = "<group>"; };
+		1B24E60489737B8DF17D02A0 /* NSObject+OKObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+OKObserver.m"; path = "../ObserverKit/NSObject+OKObserver.m"; sourceTree = "<group>"; };
+		1B24E9E95E2DFE0537F55346 /* NSObject+OKObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+OKObserver.h"; path = "../ObserverKit/NSObject+OKObserver.h"; sourceTree = "<group>"; };
 		1B24EB8CE3146B5143EF2DC2 /* OKWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OKWorker.h; path = ../ObserverKit/OKWorker.h; sourceTree = "<group>"; };
 		FE72FF721A13722D007F3FA5 /* ObserverKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObserverKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE72FF761A13722D007F3FA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +79,8 @@
 				FE72FF731A13722D007F3FA5 /* Products */,
 				1B24E588524FB30DA69B500A /* OKWorker.m */,
 				1B24EB8CE3146B5143EF2DC2 /* OKWorker.h */,
+				1B24E60489737B8DF17D02A0 /* NSObject+OKObserver.m */,
+				1B24E9E95E2DFE0537F55346 /* NSObject+OKObserver.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -234,6 +239,7 @@
 				FE72FF7B1A13722D007F3FA5 /* AppDelegate.m in Sources */,
 				FE72FF781A13722D007F3FA5 /* main.m in Sources */,
 				1B24E333C72F7219C440BD37 /* OKWorker.m in Sources */,
+				1B24E78809752BF7DFD4690A /* NSObject+OKObserver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

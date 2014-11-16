@@ -8,9 +8,9 @@
 
 #import "ViewController.h"
 #import "OKObserver.h"
+#import "NSObject+OKObserver.h"
 
 @interface ViewController ()
-@property (nonatomic, strong) OKObserver *observer;
 @property (nonatomic) NSInteger i;
 @property (nonatomic) NSInteger j;
 @property (nonatomic) NSInteger total;
@@ -23,9 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.observer = [[OKObserver alloc] initWithOwner:self];
 
-    self.observer.control(self.field1, UIControlEventEditingChanged, ^(typeof(self)me, UITextField *field) {
+    self.ok_observer.control(self.field1, UIControlEventEditingChanged, ^(typeof (self) me, UITextField *field) {
         me.i = [field.text integerValue];
         
     }).control(self.field2, UIControlEventEditingChanged, ^(typeof(self)me, UITextField *field) {
