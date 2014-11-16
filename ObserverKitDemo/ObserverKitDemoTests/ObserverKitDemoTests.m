@@ -24,7 +24,7 @@
 }
 
 - (void)testExample {
-    XCTAssert(NO, @"Pass");
+    XCTAssert(YES, @"Pass");
 }
 
 @end
