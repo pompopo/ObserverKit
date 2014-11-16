@@ -28,4 +28,7 @@ typedef void(^OKFourArgumentsBlock)(id, id, id, id);
     block(self.owner, change[NSKeyValueChangeNewKey], change[NSKeyValueChangeOldKey], keyPath);
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 @end
