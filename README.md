@@ -1,6 +1,19 @@
 #ObserverKit
-UIControl, NSNotification, Key Value Observing...
+A simple library to use UIControl, NSNotification, Key Value Observing...
 
+##Install
+with CocoaPod
+```
+pod 'ObserverKit', :git => 'https://github.com/pompopo/ObserverKit.git'
+
+```
+and
+```
+#import "OKObserver.h"
+#import "NSObject+OKObserver.h" // Optional
+```
+
+##Example
 ```objectivec
 
 self.ok_observer.control(self.field1, UIControlEventEditingChanged, ^(typeof (self) me, UITextField *field) {
@@ -20,3 +33,5 @@ self.ok_observer.control(self.field1, UIControlEventEditingChanged, ^(typeof (se
     NSLog(@"Did receive memory warning");
 });
 ```
+##License
+MIT License. See License.
