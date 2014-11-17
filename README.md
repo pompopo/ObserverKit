@@ -1,10 +1,10 @@
-#ObserverKit ![build](https://travis-ci.org/pompopo/ObserverKit.svg?branch=master)
+#ObserverKit ![build](https://travis-ci.org/pompopo/ObserverKit.svg?branch=master) ![pod](http://img.shields.io/cocoapods/v/ObserverKit.svg) ![license](http://img.shields.io/cocoapods/l/ObserverKit.svg) ![platform](http://img.shields.io/cocoapods/p/ObserverKit.svg)
 
 A simple library to use UIControl, NSNotification, Key Value Observing...
 ##Install
 with CocoaPod
 ```
-pod 'ObserverKit', :git => 'https://github.com/pompopo/ObserverKit.git'
+pod 'ObserverKit'
 
 ```
 and
