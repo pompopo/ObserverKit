@@ -17,6 +17,7 @@
 		FE72FF861A13722D007F3FA5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE72FF841A13722D007F3FA5 /* LaunchScreen.xib */; };
 		FE72FF921A13722D007F3FA5 /* ObserverKitDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FE72FF911A13722D007F3FA5 /* ObserverKitDemoTests.m */; };
 		FE72FF9D1A13725E007F3FA5 /* OKObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = FE72FF9C1A13725E007F3FA5 /* OKObserver.m */; };
+		FEEDEAD91A1A03CF008ADDF0 /* NSMethodSignatureForBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEDEAD81A1A03CF008ADDF0 /* NSMethodSignatureForBlock.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		FE72FF911A13722D007F3FA5 /* ObserverKitDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObserverKitDemoTests.m; sourceTree = "<group>"; };
 		FE72FF9B1A13725E007F3FA5 /* OKObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OKObserver.h; path = ../ObserverKit/OKObserver.h; sourceTree = "<group>"; };
 		FE72FF9C1A13725E007F3FA5 /* OKObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKObserver.m; path = ../ObserverKit/OKObserver.m; sourceTree = "<group>"; };
+		FEEDEAD81A1A03CF008ADDF0 /* NSMethodSignatureForBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSMethodSignatureForBlock.m; path = ../ObserverKit/NSMethodSignatureForBlock.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				FE72FF9B1A13725E007F3FA5 /* OKObserver.h */,
+				FEEDEAD81A1A03CF008ADDF0 /* NSMethodSignatureForBlock.m */,
 				FE72FF9C1A13725E007F3FA5 /* OKObserver.m */,
 				FE72FF741A13722D007F3FA5 /* ObserverKitDemo */,
 				FE72FF8E1A13722D007F3FA5 /* ObserverKitDemoTests */,
@@ -235,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE72FF7E1A13722D007F3FA5 /* ViewController.m in Sources */,
+				FEEDEAD91A1A03CF008ADDF0 /* NSMethodSignatureForBlock.m in Sources */,
 				FE72FF9D1A13725E007F3FA5 /* OKObserver.m in Sources */,
 				FE72FF7B1A13722D007F3FA5 /* AppDelegate.m in Sources */,
 				FE72FF781A13722D007F3FA5 /* main.m in Sources */,
