@@ -65,7 +65,7 @@ self.ok_observer.control(self.button, UIControlEventTouchUpInside, ^(typeof(self
 });
 
 // multiple controls
-self.ok_observer.control(@[self.buttonA, self.buttonB], ^(typeof(self)me, UIButton *button) {
+self.ok_observer.control(@[self.buttonA, self.buttonB], UIControlEventTouchUpInside, ^(typeof(self)me, UIButton *button) {
     if (button.tag == 1) {
         NSLog(@"buttonA touched");
     } else {
@@ -81,7 +81,7 @@ self.ok_observer.notification(UIApplicationDidReceiveMemoryWarningNotification, 
     NSLog(@"memory warning");
 });
 
-// multiple notification
+// multiple notifications
 self.ok_observer.notification(@[UIKeyboardDidShowNotification, UIKeyboardDidHideNotification], ^{
     NSLog(@"Keyboard did show or hide");
 });
