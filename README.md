@@ -33,5 +33,58 @@ self.ok_observer.control(self.field1, UIControlEventEditingChanged, ^(typeof (se
     NSLog(@"Did receive memory warning");
 });
 ```
+## Key Value Observing
+```objectivec
+// single key
+self.ok_observer.keyPath(@"i", ^(typeof(self)me, id newValue, id oldValue) {
+    NSLog(@"%@ -> %@", newValue, oldValue);
+});
+
+// multiple keys
+self.ok_observer.keyPath(@[@"i", @"j"], ^(typeof(self)me, id newValue, id oldValue, NSString *keyPath) {
+    if ([keyPath isEqualToString:@"i"]) {
+        NSLog(@"i changed");
+    } else {
+        NSLog(@"j changed");
+    }
+});
+
+// cast NSNumber, NSValue
+self.ok_observer.keyPath(@"i", ^(typeof(self)me, NSInteger newValue) {
+    // You don't have to write [newValue integerValue]
+    if (newValue == 100) {
+        ...
+    }
+});
+```
+## UIControl
+```objectivec
+// single control
+self.ok_observer.control(self.button, UIControlEventTouchUpInside, ^(typeof(self)me, UIButton *button, UIEvent *event) {
+    NSLog(@"button touched");
+});
+
+// multiple controls
+self.ok_observer.control(@[self.buttonA, self.buttonB], ^(typeof(self)me, UIButton *button) {
+    if (button.tag == 1) {
+        NSLog(@"buttonA touched");
+    } else {
+        NSLog(@"buttonB touched");
+    }
+});
+```
+
+## NSNotification
+```objectivec
+// single notification
+self.ok_observer.notification(UIApplicationDidReceiveMemoryWarningNotification, ^(id me, NSNotification *notification) {
+    NSLog(@"memory warning");
+});
+
+// multiple notification
+self.ok_observer.notification(@[UIKeyboardDidShowNotification, UIKeyboardDidHideNotification], ^{
+    NSLog(@"Keyboard did show or hide");
+});
+```
 ##License
-MIT License. See License.
+MIT License. See LICENSE.
