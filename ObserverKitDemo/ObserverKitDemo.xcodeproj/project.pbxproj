@@ -74,16 +74,10 @@
 		FE72FF691A13722D007F3FA5 = {
 			isa = PBXGroup;
 			children = (
-				FE72FF9B1A13725E007F3FA5 /* OKObserver.h */,
-				FEEDEAD81A1A03CF008ADDF0 /* NSMethodSignatureForBlock.m */,
-				FE72FF9C1A13725E007F3FA5 /* OKObserver.m */,
+				FEEDEADA1A1A2B7D008ADDF0 /* ObserverKit */,
 				FE72FF741A13722D007F3FA5 /* ObserverKitDemo */,
 				FE72FF8E1A13722D007F3FA5 /* ObserverKitDemoTests */,
 				FE72FF731A13722D007F3FA5 /* Products */,
-				1B24E588524FB30DA69B500A /* OKWorker.m */,
-				1B24EB8CE3146B5143EF2DC2 /* OKWorker.h */,
-				1B24E60489737B8DF17D02A0 /* NSObject+OKObserver.m */,
-				1B24E9E95E2DFE0537F55346 /* NSObject+OKObserver.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,6 +129,20 @@
 				FE72FF901A13722D007F3FA5 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FEEDEADA1A1A2B7D008ADDF0 /* ObserverKit */ = {
+			isa = PBXGroup;
+			children = (
+				FE72FF9B1A13725E007F3FA5 /* OKObserver.h */,
+				FE72FF9C1A13725E007F3FA5 /* OKObserver.m */,
+				1B24E60489737B8DF17D02A0 /* NSObject+OKObserver.m */,
+				1B24E9E95E2DFE0537F55346 /* NSObject+OKObserver.h */,
+				1B24EB8CE3146B5143EF2DC2 /* OKWorker.h */,
+				1B24E588524FB30DA69B500A /* OKWorker.m */,
+				FEEDEAD81A1A03CF008ADDF0 /* NSMethodSignatureForBlock.m */,
+			);
+			name = ObserverKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
