@@ -44,4 +44,21 @@
 *   ^(typeof(owner) owner, UIControl *control, UIEvent *event) {}
 */
 - (OKObserver *(^)(id, UIControlEvents, id))control;
+
+/**
+* convenience version of -[OKObserver control]
+* control(UIControl* or NSArray* control, id block)
+* block can be
+*   ^() {}
+*   ^(typeof(owner) owner) {}
+*   ^(typeof(owner) owner, UIControl *control) {}
+*   ^(typeof(owner) owner, UIControl *control, UIEvent *event) {}
+*
+*  Automatically select UIControlEvents.
+*   UIButton -> UIControlEventTouchUpInside
+*   UITextField -> UIControlEventEditingChanged
+*   others -> UIControlEventValueChanged
+*/
+- (OKObserver *(^)(id, id))control2;
+
 @end

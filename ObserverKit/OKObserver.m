@@ -4,11 +4,13 @@
 
 #import "OKObserver.h"
 #import "OKWorker.h"
+#import "NSMethodSignatureForBlock.m"
 
-@interface OKObserver()
-@property (nonatomic, weak) id owner;
-@property (nonatomic, strong) NSMutableArray *workers;
+@interface OKObserver ()
+@property(nonatomic, weak) id owner;
+@property(nonatomic, strong) NSMutableArray *workers;
 @end
+
 @implementation OKObserver
 
 - (instancetype)initWithOwner:(id)owner {
@@ -41,7 +43,7 @@
              constructor:^(id path, OKWorker *worker) {
                  [self.owner addObserver:worker
                               forKeyPath:path
-                                 options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld
+                                 options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
                                  context:NULL];
              }];
         return self;
@@ -61,7 +63,25 @@
     };
 }
 
+- (OKObserver *(^)(id, id))control2 {
+    return ^OKObserver *(id obj, id block) {
+        UIControlEvents events = [self defaultEventsForUIControl:obj];
+        return self.control(obj, events, block);
+    };
+}
+
 #pragma mark - Private
+
+- (UIControlEvents)defaultEventsForUIControl:(UIControl *)control {
+    if ([control isKindOfClass:[UIButton class]]) {
+        return UIControlEventTouchUpInside;
+    } else if ([control isKindOfClass:[UITextField class]]) {
+        return UIControlEventEditingChanged;
+    } else {
+        return UIControlEventValueChanged;
+    }
+}
+
 typedef void(^OKConstructorBlock)(id obj, OKWorker *worker);
 
 - (void)bindObject:(id)objOrArray block:(id)block constructor:(OKConstructorBlock)constructor {

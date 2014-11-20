@@ -10,29 +10,30 @@
 #import <XCTest/XCTest.h>
 #import "NSObject+OKObserver.h"
 #import "OKObserver.h"
-@interface ObserverKitDemoTests : XCTestCase
-@property (nonatomic) NSInteger i;
-@property (nonatomic) NSInteger j;
-@property (nonatomic) BOOL done;
 
-@property (nonatomic) id idVar;
-@property (nonatomic) BOOL boolVar;
-@property (nonatomic) char charVar;
-@property (nonatomic) double doubleVar;
-@property (nonatomic) float floatVar;
-@property (nonatomic) int intVar;
-@property (nonatomic) NSInteger integerVar;
-@property (nonatomic) long long longLongVar;
-@property (nonatomic) long longVar;
-@property (nonatomic) short shortVar;
-@property (nonatomic) unsigned char unsignedCharVar;
-@property (nonatomic) NSUInteger unsignedIntegerVar;
-@property (nonatomic) unsigned long long unsignedLongLongVar;
-@property (nonatomic) unsigned long unsignedLongVar;
-@property (nonatomic) unsigned short unsignedShortVar;
-@property (nonatomic) CGPoint CGPointVar;
-@property (nonatomic) CGSize CGSizeVar;
-@property (nonatomic) CGRect CGRectVar;
+@interface ObserverKitDemoTests : XCTestCase
+@property(nonatomic) NSInteger i;
+@property(nonatomic) NSInteger j;
+@property(nonatomic) BOOL done;
+
+@property(nonatomic) id idVar;
+@property(nonatomic) BOOL boolVar;
+@property(nonatomic) char charVar;
+@property(nonatomic) double doubleVar;
+@property(nonatomic) float floatVar;
+@property(nonatomic) int intVar;
+@property(nonatomic) NSInteger integerVar;
+@property(nonatomic) long long longLongVar;
+@property(nonatomic) long longVar;
+@property(nonatomic) short shortVar;
+@property(nonatomic) unsigned char unsignedCharVar;
+@property(nonatomic) NSUInteger unsignedIntegerVar;
+@property(nonatomic) unsigned long long unsignedLongLongVar;
+@property(nonatomic) unsigned long unsignedLongVar;
+@property(nonatomic) unsigned short unsignedShortVar;
+@property(nonatomic) CGPoint CGPointVar;
+@property(nonatomic) CGSize CGSizeVar;
+@property(nonatomic) CGRect CGRectVar;
 @end
 
 @implementation ObserverKitDemoTests
@@ -51,7 +52,7 @@
     self.j = 200;
     __block int numberOfTests = 0;
 
-    self.ok_observer.keyPath(@"i", ^(typeof(self)me, id newVal, id oldVal, NSString *path) {
+    self.ok_observer.keyPath(@"i", ^(typeof(self) me, id newVal, id oldVal, NSString *path) {
         XCTAssert(self == me);
         XCTAssert([newVal integerValue] == 101);
         XCTAssert([oldVal integerValue] == 100);
@@ -162,8 +163,9 @@
     while (numberOfTests != 18) {
         sleep(1);
     }
-    
+
 }
+
 - (void)testControl {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     self.ok_observer.control(button, UIControlEventTouchUpInside, ^(typeof(self) me, UIControl *control) {
@@ -176,8 +178,20 @@
     }
 }
 
+- (void)testControl2 {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.ok_observer.control2(button, ^(typeof(self) me, UIControl *control) {
+        XCTAssert(control == button);
+        me.done = YES;
+    });
+    [button sendActionsForControlEvents:UIControlEventTouchUpInside];
+    while (!self.done) {
+        sleep(1);
+    }
+}
+
 - (void)testNotification {
-    self.ok_observer.notification(@"OKObserverTestNotification", ^(typeof(self)me, NSNotification *notification) {
+    self.ok_observer.notification(@"OKObserverTestNotification", ^(typeof(self) me, NSNotification *notification) {
         XCTAssert([notification.name isEqualToString:@"OKObserverTestNotification"]);
 
         me.done = YES;
@@ -186,6 +200,6 @@
     while (!self.done) {
         sleep(1);
     }
-    
+
 }
 @end
