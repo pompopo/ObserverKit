@@ -65,8 +65,15 @@
 
 - (OKObserver *(^)(id, id))control2 {
     return ^OKObserver *(id obj, id block) {
-        UIControlEvents events = [self defaultEventsForUIControl:obj];
-        return self.control(obj, events, block);
+        [self bindObject:obj
+                   block:block
+             constructor:^(id control, OKWorker *worker) {
+                 UIControlEvents events = [self defaultEventsForUIControl:control];
+                 [control addTarget:worker
+                             action:@selector(work:event:)
+                   forControlEvents:events];
+             }];
+        return self;
     };
 }
 

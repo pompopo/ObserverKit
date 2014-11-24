@@ -190,6 +190,19 @@
     }
 }
 
+- (void)testControl2TwoButtons {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *button2 = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.ok_observer.control2(@[button, button2], ^(typeof(self) me, UIControl *control) {
+        XCTAssert(control == button);
+        me.done = YES;
+    });
+    [button sendActionsForControlEvents:UIControlEventTouchUpInside];
+    while (!self.done) {
+        sleep(1);
+    }
+}
+
 - (void)testNotification {
     self.ok_observer.notification(@"OKObserverTestNotification", ^(typeof(self) me, NSNotification *notification) {
         XCTAssert([notification.name isEqualToString:@"OKObserverTestNotification"]);
