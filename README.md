@@ -73,8 +73,8 @@ self.ok_observer.control(@[self.buttonA, self.buttonB], UIControlEventTouchUpIns
     }
 });
 
-// You can omit UIControlEvents. 
-self.ok_observer.control(self.button, ^(typeof(self)me, UIButton *button, UIEvent *event) {
+// You can omit UIControlEvents with control2
+self.ok_observer.control2(self.button, ^(typeof(self)me, UIButton *button, UIEvent *event) {
     NSLog(@"button touched");
 });
 ```
