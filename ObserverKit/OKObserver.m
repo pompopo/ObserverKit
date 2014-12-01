@@ -32,7 +32,7 @@
                                                               name:name
                                                             object:nil];
              }];
-        return nil;
+        return self;
     };
 }
 

@@ -47,6 +47,14 @@
     [super tearDown];
 }
 
+- (void)testConnection {
+    XCTAssertNotNil(self.ok_observer.keyPath(@"i", ^{}));
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+    XCTAssertNotNil(self.ok_observer.control(button, UIControlEventTouchUpInside, ^{}));
+    XCTAssertNotNil(self.ok_observer.control2(button, ^{}));
+    XCTAssertNotNil(self.ok_observer.notification(@"i", ^{}));
+}
+
 - (void)testKeyPath {
     self.i = 100;
     self.j = 200;
