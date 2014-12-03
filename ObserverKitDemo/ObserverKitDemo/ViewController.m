@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "OKObserver.h"
 #import "NSObject+OKObserver.h"
+#import "NSObject+OKBind.h"
 
 @interface ViewController ()
 @property (nonatomic) NSInteger i;
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *field1;
 @property (weak, nonatomic) IBOutlet UITextField *field2;
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
+@property (nonatomic, strong) NSString *text;
 @end
 
 @implementation ViewController
@@ -33,12 +35,17 @@
     }).keyPath(@[@"i", @"j"], ^(typeof(self)me, id newValue, id oldValue, NSString *path) {
         NSLog(@"%@: %@ -> %@", path, oldValue, newValue);
         me.total = me.i + me.j;
-        
+        me.text = [NSString stringWithFormat:@"%qi", (long long int) me.total];
+
     }).keyPath(@"total", ^(typeof(self)me, id val){
-        me.resultLabel.text = [NSString stringWithFormat:@"%ld", [val integerValue]];
+//        me.resultLabel.text = [NSString stringWithFormat:@"%ld", [val integerValue]];
 
     }).notification(UIApplicationDidReceiveMemoryWarningNotification, ^{
         NSLog(@"Did receive memory warning");
+    });
+
+    self.resultLabel.ok_bind(self, @"text <- total").rightToLeft(^id(id val) {
+        return [NSString stringWithFormat:@"%@", val];
     });
 }
 
