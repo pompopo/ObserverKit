@@ -91,5 +91,14 @@ self.ok_observer.notification(@[UIKeyboardDidShowNotification, UIKeyboardDidHide
     NSLog(@"Keyboard did show or hide");
 });
 ```
+
+## dealloc
+
+You must stop observing in dealloc,
+```
+- (void)dealloc {
+  [self ok_stop];
+}
+```
 ##License
 MIT License. See LICENSE.
