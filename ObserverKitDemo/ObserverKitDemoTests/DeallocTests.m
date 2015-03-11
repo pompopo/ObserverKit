@@ -39,15 +39,20 @@
 }
 
 - (void)testNotification {
+    @autoreleasepool {
+    
+
     self.hoge.ok_observer.notification(@"HogeNotification", ^{
         XCTFail();
     });
     self.hoge = nil;
+    }
     [[NSNotificationCenter defaultCenter] postNotificationName:@"HogeNotification" object:nil];
 }
 
 - (void)testKVO {
     self.hoge.ok_observer.keyPath(@"i", ^{
+        
         XCTFail();
     });
     self.hoge = nil;
@@ -56,11 +61,14 @@
 
 - (void)testControl {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-    self.hoge.ok_observer.control2(button, ^{
-        XCTFail();
-    });
-    self.hoge = nil;
+    @autoreleasepool {
+        self.hoge.ok_observer.control2(button, ^(typeof(self)me) {
+            XCTFail(@"hoge");
+        });
+        self.hoge = nil;
+    }
     [button sendActionsForControlEvents:UIControlEventTouchUpInside];
+
 }
 
 @end
