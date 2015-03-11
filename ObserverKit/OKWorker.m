@@ -3,15 +3,64 @@
 //
 
 #import "OKWorker.h"
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 #import "NSMethodSignatureForBlock.m"
+
 typedef void(^OKOneArgumentBlock)(id);
+
 typedef void(^OKTwoArgumentsBlock)(id, id);
+
 typedef void(^OKThreeArgumentsBlock)(id, id, id);
+
 typedef void(^OKFourArgumentsBlock)(id, id, id, id);
 
+@interface OKWorker ()
+@property(copy, nonatomic) OKTwoArgumentsBlock deallocBlock;
+@end
+
 @implementation OKWorker
+
+- (void)observeNotificationNamed:(NSString *)name {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(work:)
+                                                 name:name
+                                               object:nil];
+    self.deallocBlock = ^(typeof(self) me, id owner) {
+        [[NSNotificationCenter defaultCenter] removeObserver:me
+                                                        name:name
+                                                      object:nil];
+
+    };
+}
+
+- (void)observeControl:(UIControl *)control event:(UIControlEvents)event {
+    [control addTarget:self
+                action:@selector(work:event:)
+      forControlEvents:event];
+
+    self.deallocBlock = ^(typeof(self) me, id owner) {
+        [control removeTarget:me
+                       action:@selector(work:event:)
+             forControlEvents:event];
+    };
+}
+
+- (void)observeKeyPath:(NSString *)keyPath {
+    [self.owner addObserver:self
+                 forKeyPath:keyPath
+                    options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
+                    context:NULL];
+
+    self.deallocBlock = ^(typeof(self) me, id owner) {
+        [owner removeObserver:me
+                   forKeyPath:keyPath];
+    };
+}
+
+- (void)stopWithOwner:(id)owner {
+    if (self.deallocBlock != nil) {
+        self.deallocBlock(self, owner);
+    }
+}
 
 - (void)work:(NSNotification *)notification {
     OKTwoArgumentsBlock block = self.block;
@@ -31,7 +80,11 @@ typedef void(^OKFourArgumentsBlock)(id, id, id, id);
     NSMethodSignature *signature = NSMethodSignatureForBlock(self.block);
     id newValue = change[NSKeyValueChangeNewKey];
     id oldValue = change[NSKeyValueChangeOldKey];
-    #define call_block(type, arg1, arg2) (^(){ \
+
+    if (newValue == [NSNull null]) {
+        newValue = nil;
+    }
+#define call_block(type, arg1, arg2) (^(){ \
                 void(^block)(id, type, type, id); \
                 block = self.block; \
                 block(self.owner, arg1, arg2, keyPath); \
@@ -88,10 +141,5 @@ typedef void(^OKFourArgumentsBlock)(id, id, id, id);
         block(self.owner);
     }
 }
-
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 
 @end

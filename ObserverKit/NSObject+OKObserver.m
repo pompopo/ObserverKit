@@ -17,4 +17,9 @@ const char *ObserverKey = "OKObserverKit.OKObserver";
     return observer;
 }
 
+- (void)ok_stop {
+    [self.ok_observer stopObservingWithOwner:self];
+}
+
+
 @end

@@ -4,7 +4,6 @@
 
 #import "OKObserver.h"
 #import "OKWorker.h"
-#import "NSMethodSignatureForBlock.m"
 
 @interface OKObserver ()
 @property(nonatomic, weak) id owner;
@@ -27,10 +26,7 @@
         [self bindObject:obj
                    block:block
              constructor:^(id name, OKWorker *worker) {
-                 [[NSNotificationCenter defaultCenter] addObserver:worker
-                                                          selector:@selector(work:)
-                                                              name:name
-                                                            object:nil];
+                 [worker observeNotificationNamed:name];
              }];
         return self;
     };
@@ -41,10 +37,7 @@
         [self bindObject:obj
                    block:block
              constructor:^(id path, OKWorker *worker) {
-                 [self.owner addObserver:worker
-                              forKeyPath:path
-                                 options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
-                                 context:NULL];
+                 [worker observeKeyPath:path];
              }];
         return self;
     };
@@ -55,9 +48,7 @@
         [self bindObject:obj
                    block:block
              constructor:^(id control, OKWorker *worker) {
-                 [control addTarget:worker
-                             action:@selector(work:event:)
-                   forControlEvents:events];
+                 [worker observeControl:control event:events];
              }];
         return self;
     };
@@ -69,12 +60,18 @@
                    block:block
              constructor:^(id control, OKWorker *worker) {
                  UIControlEvents events = [self defaultEventsForUIControl:control];
-                 [control addTarget:worker
-                             action:@selector(work:event:)
-                   forControlEvents:events];
+                 [worker observeControl:control event:events];
              }];
         return self;
     };
+}
+
+- (void)stopObservingWithOwner:(id)owner {
+    [self.workers enumerateObjectsUsingBlock:^(OKWorker *worker, NSUInteger idx, BOOL *stop) {
+        [worker stopWithOwner:owner];
+    }];
+
+    [self.workers removeAllObjects];
 }
 
 #pragma mark - Private

@@ -61,4 +61,5 @@
 */
 - (OKObserver *(^)(id, id))control2;
 
+- (void)stopObservingWithOwner:(id)owner;
 @end

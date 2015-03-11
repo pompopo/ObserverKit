@@ -5,6 +5,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @class UIControl;
 @class UIEvent;
@@ -13,6 +14,9 @@
 @property (nonatomic, weak) id owner;
 @property (nonatomic, copy) id block;
 
-- (void)work:(NSNotification *)notification;
-- (void)work:(UIControl *)control event:(UIEvent *)event;
+- (void)observeNotificationNamed:(NSString *)name;
+- (void)observeControl:(UIControl *)control event:(UIControlEvents)event;
+- (void)observeKeyPath:(NSString *)keyPath;
+
+- (void)stopWithOwner:(id)owner;
 @end
