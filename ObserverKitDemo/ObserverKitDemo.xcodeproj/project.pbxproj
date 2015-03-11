@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04E452451AB045BA00B4A76D /* DeallocTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E452441AB045BA00B4A76D /* DeallocTests.m */; };
 		1B24E333C72F7219C440BD37 /* OKWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B24E588524FB30DA69B500A /* OKWorker.m */; };
 		1B24E78809752BF7DFD4690A /* NSObject+OKObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B24E60489737B8DF17D02A0 /* NSObject+OKObserver.m */; };
 		FE72FF781A13722D007F3FA5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FE72FF771A13722D007F3FA5 /* main.m */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04E452441AB045BA00B4A76D /* DeallocTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeallocTests.m; sourceTree = "<group>"; };
 		1B24E588524FB30DA69B500A /* OKWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKWorker.m; path = ../ObserverKit/OKWorker.m; sourceTree = "<group>"; };
 		1B24E60489737B8DF17D02A0 /* NSObject+OKObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+OKObserver.m"; path = "../ObserverKit/NSObject+OKObserver.m"; sourceTree = "<group>"; };
 		1B24E9E95E2DFE0537F55346 /* NSObject+OKObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+OKObserver.h"; path = "../ObserverKit/NSObject+OKObserver.h"; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			children = (
 				FE72FF911A13722D007F3FA5 /* ObserverKitDemoTests.m */,
 				FE72FF8F1A13722D007F3FA5 /* Supporting Files */,
+				04E452441AB045BA00B4A76D /* DeallocTests.m */,
 			);
 			path = ObserverKitDemoTests;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E452451AB045BA00B4A76D /* DeallocTests.m in Sources */,
 				FE72FF921A13722D007F3FA5 /* ObserverKitDemoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
