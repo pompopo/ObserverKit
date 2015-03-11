@@ -61,5 +61,13 @@
 */
 - (OKObserver *(^)(id, id))control2;
 
+/**
+* Stop all observations.
+* You must call this in thw owner's dealloc method.
+*
+* @param owner pass the object used in initWithOwner:
+*
+* or use -[NSObject ok_stop];
+*/
 - (void)stopObservingWithOwner:(id)owner;
 @end

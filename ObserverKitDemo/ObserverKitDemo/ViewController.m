@@ -52,8 +52,8 @@
         ViewController *controller = [[ViewController alloc] init];
         obj = controller;
 
-        controller.ok_observer.keyPath(@"i", ^{
-            NSLog(@"changed");
+        controller.ok_observer.notification(UIApplicationDidReceiveMemoryWarningNotification, ^{
+            NSLog(@"fua-");
         });
         controller.i = 100;
 
@@ -72,7 +72,7 @@
 }
 
 - (void)dealloc {
-    [self ok_stop];
+//    [self ok_stop];
     NSLog(@"DEALLOC");
 }
 @end
