@@ -1,3 +1,8 @@
+/**
+ * This file is copied from PromiseKit
+ * https://github.com/mxcl/PromiseKit
+ */
+
 #import <Foundation/Foundation.h>
 
 struct PMKBlockLiteral {
